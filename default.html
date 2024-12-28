@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar with Animation and Parallax</title>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Topbar Styles */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .topbar .logo img {
+      height: 30px;
+      width: auto;
+      animation: bounceIn 1s ease-out;
+    }
+
+    .topbar .contact-info {
+      font-size: 0.9rem;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #9feaf8;
+      color: #fff;
+      padding: 0.5rem 1.5rem;
+      position: sticky;
+      top: 50px;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeSlideDown 0.5s ease-out forwards;
+    }
+
+    .navbar.scrolled {
+      background: #d32f2f; /* Darker red when scrolled */
+      transition: background 0.3s ease;
+    }
+
+    .navbar .logo img {
+      height: 45px;
+      width: auto;
+      animation: bounceIn 1s ease-out;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-list li {
+      margin: 0 1rem;
+    }
+
+    .nav-list a {
+      color: #250af2;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-list a:hover {
+      color: #030407;
+    }
+
+    /* Mobile Menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle .bar {
+      background: #fff;
+      height: 3px;
+      width: 25px;
+      margin: 3px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* Slideshow Styles */
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      transition: transform 1s ease-in-out;
+      display: flex;
+      justify-content: center;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures images fill the container without distortion */
+      max-height: 500px; /* Adjust height to a specific value if needed */
+    }
+
+    .dots-container {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .dot {
+      display: inline-block;
+      margin: 0 5px;
+      width: 10px;
+      height: 10px;
+      background-color: #bbb;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .active {
+      background-color: #717171;
+    }
+
+    /* Product Section Styles */
+    .product-section {
+      padding: 2rem;
+      text-align: center;
+      background-color: #f9f9f9;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .product-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      font-family: 'Times New Roman', Times, serif;
+      color: red;
+    }
+
+    .product-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      width: 30%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 250px; /* Set a base height */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .product-card h3 {
+      font-size: 1.2rem;
+      margin: 0.8rem 0;
+    }
+
+    .product-card p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Parallax Styles */
+    section {
+      position: relative;
+      text-align: center;
+    }
+
+    #section1 {
+      background-image: url('./css/Images/Image4.jpg');
+      background-position: center;
+      background-attachment: fixed;
+      background-size: cover;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      font-size: 2em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      padding-top: 20vh;
+    }
+
+    .content h1 {
+      font-size: 3em;
+    }
+
+    .middle-section {
+      background-color: #f4f4f4;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+      z-index: 10;
+      position: relative;
+    }
+
+    /* Mobile-Responsive Styles */
+    @media (max-width: 768px) {
+      .product-card {
+        width: 90%;
+        height: 350px;
+      }
+
+      .nav-list {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #f44336;
+        z-index: 999;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-list.active {
+        display: flex;
+        animation: slideDown 0.4s ease-in-out;
+      }
+
+      .nav-list li {
+        margin: 1rem 0;
+      }
+
+      .nav-list a {
+        font-size: 1.5rem;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      /* Parallax Content for Mobile */
+      .content {
+        font-size: 1.5em;
+        padding-top: 15vh;
+      }
+
+      .content h1 {
+        font-size: 2em;
+      }
+
+      .content p {
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-card {
+        width: 90%;
+        height: 380px;
+      }
+    }
+
+    /* Animations */
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="logo">
+      <a href="#"><img src="css/Images/Logo.jpeg" alt="Company Logo"></a>
+    </div>
+    <div class="contact-info">
+      <span>Call us: +1234567890</span>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      <a href="#"><img src="css/Images/Logo.jpeg" alt="Company Logo"></a>
+    </div>
+    <ul class="nav-list">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="menu-toggle" id="mobile-menu">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </nav>
+
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <div class="slides">
+      <div class="slide">
+        <img src="css/Images/Image2.jpg" alt="Image 1">
+      </div>
+      <div class="slide">
+        <img src="css/Images/Image3.jpg" alt="Image 2">
+      </div>
+      <div class="slide">
+        <img src="css/Images/Image7.jpg" alt="Image 3">
+      </div>
+    </div>
+  </div>
+
+  <div class="dots-container">
+    <span class="dot" onclick="currentSlide(0)"></span>
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+  </div>
+
+  <!-- Product Section -->
+  <div class="product-section">
+    <h2>Our Products</h2>
+    <div class="product-container">
+      <div class="product-card">
+        <img src="product1.jpg" alt="Product 1">
+        <h3>Product 1</h3>
+        <p>Description of Product 1</p>
+      </div>
+      <div class="product-card">
+        <img src="product2.jpg" alt="Product 2">
+        <h3>Product 2</h3>
+        <p>Description of Product 2</p>
+      </div>
+      <div class="product-card">
+        <img src="product3.jpg" alt="Product 3">
+        <h3>Product 3</h3>
+        <p>Description of Product 3</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Parallax Section -->
+  <section id="section1">
+    <div class="content">
+      <h1>We are best in medicinal products</h1>
+      <p>contact us for.</p>
+    </div>
+  </section>
+
+  <!-- Middle Section -->
+  <section class="middle-section">
+   
+  </section>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navList = document.querySelector('.nav-list');
+
+    mobileMenu.addEventListener('click', () => {
+      navList.classList.toggle('active');
+    });
+
+    // Navbar Scroll Animation
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Slideshow functionality
+    let slideIndex = 0;
+    let slides = document.querySelector('.slides');
+    let totalSlides = document.querySelectorAll('.slide').length;
+    let dots = document.querySelectorAll('.dot');
+
+    function showSlides() {
+      slideIndex++;
+      if (slideIndex >= totalSlides) {
+        slideIndex = 0;
+      }
+      slides.style.transform = translateX(-${slideIndex * 100}%);
+      updateDots();
+    }
+
+    function currentSlide(index) {
+      slideIndex = index;
+      slides.style.transform = translateX(-${slideIndex * 100}%);
+      updateDots();
+    }
+
+    function updateDots() {
+      dots.forEach((dot, idx) => {
+        dot.classList.remove('active');
+        if (idx === slideIndex) {
+          dot.classList.add('active');
+        }
+      });
+    }
+
+    setInterval(showSlides, 3000); // Change slide every 3 seconds
+  </script>
+</body>
+</html>
