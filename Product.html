@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Page</title>
+    <link rel="stylesheet" href="./css/style.css"> <!-- Link to your main CSS file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- For star icons -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   
+    <style>
+       .caroussel {
+    position: relative;
+    width: 100%;
+    margin: 41px auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.caroussel-inner {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.5, 1);
+}
+
+.caroussel-item {
+    min-width: 100%;
+    height: 550px;
+    background-size: cover;
+    background-position: center;
+    image-rendering: auto;
+    position: relative; /* To position overlay */
+    transition: filter 0.3s ease-in-out;
+}
+
+
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9); /* Lighter box */
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow for visibility */
+}
+
+.overlay button {
+    background-color: #4CAF50; /* Bright green for buttons */
+    color: #fff;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Bright button shadow */
+}
+
+.overlay button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slight grow effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced hover shadow */
+}
+
+.overlay .wechat-btn {
+    background-color: #00BFAE; /* Brighter WeChat green */
+}
+
+.overlay .wechat-btn:hover {
+    background-color: #00A98F; /* Darker WeChat green */
+}
+
+.overlay img {
+    width: 28px;
+    height: 28px;
+}
+
+.caroussel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.3s;
+}
+
+.caroussel-control:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.caroussel-control.prev {
+    left: 15px;
+}
+
+.caroussel-control.next {
+    right: 15px;
+}
+
+.caroussel-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.indicator:hover {
+    transform: scale(1.2);
+}
+
+.indicator.active {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+@keyframes load {
+    0% {
+        width: 10px;
+    }
+    100% {
+        width: 30px;
+    }
+}
+@media (max-width: 768px) {
+    .caroussel-item {
+        height: 500px; /* Adjust the height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .caroussel-item {
+        height: 200px; /* Further adjust for very small screens */
+    }
+}
+
+
+        /* Products Section */
+        .product-section {
+            margin-top: 40px; /* Space below the banner */
+            padding: 20px;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 products per row */
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 992px) {
+            .product-container {
+                grid-template-columns: repeat(2, 1fr); /* 2 products per row on tablets */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .product-container {
+                grid-template-columns: 1fr; /* 1 product per row on small screens */
+            }
+        }
+
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto; /* Maintains the aspect ratio */
+            max-height: 180px; /* Ensures the image doesn't exceed a specific height */
+            object-fit: contain; /* Ensures the entire image fits inside the card */
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product-card p {
+            color: #777;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            gap: 10px;
+        }
+
+        .pagination-btn {
+            background-color: #2C3E50;
+            color: #ECF0F1;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .pagination-btn:hover {
+            background-color: #1ABC9C;
+        }
+
+        .pagination-btn.active {
+            background-color: #1ABC9C;
+            color: #FFFFFF;
+        }
+        .product-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Default: 4 products per row */
+    gap: 20px;
+}
+
+@media (max-width: 992px) {
+    .product-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 products per row on tablets and small devices */
+    }
+}
+
+@media (max-width: 576px) {
+    .product-container {
+        grid-template-columns: repeat(2, 1fr);/* 1 product per row on very small screens */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">Free Shipping on Orders Over $50!</div>
+
+    <!-- Navbar -->
+    <div class="navbarr">
+        <div class="navbarr-logo">
+            <img src="/css/Images/Godetia Logo.jpg" alt="Logo"> <!-- Replace with your logo -->
+        </div>
+        <div class="navbarr-menu">
+            <a href="./index.html">Home</a>
+            <a href="./Product.html">Products</a>
+            <a href="./AboutUs.html">About Us</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Banner Section -->
+    <div class="caroussel">
+        <div class="caroussel-inner">
+            <div class="caroussel-item active" style="background-image: url('./css/Images/WechatIMG32.jpg');">
+                <!-- <div class="overlay">
+                    <button class="wechat-btn">
+                        <i class="fab fa-weixin"></i> WeChat
+                    </button>
+                    <button class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </button>
+                </div> -->
+            </div>
+            <div class="caroussel-item" style="background-image: url('./css/Images/WechatIMG33.jpg');">
+                <!-- <div class="overlay">
+                    <button class="wechat-btn">
+                        <i class="fab fa-weixin"></i> WeChat
+                    </button>
+                    <button class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </button>
+                </div> -->
+            </div>
+            <div class="caroussel-item" style="background-image: url('./css/Images/WechatIMG36.jpg');"></div>
+           
+        </div>
+        <button class="caroussel-control prev" aria-label="Previous">&lt;</button>
+        <button class="caroussel-control next" aria-label="Next">&gt;</button>
+        <div class="caroussel-indicators">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+           
+        </div>
+    </div>
+     <!-- No text, just the image -->
+
+    <!-- Product Section -->
+    <div class="product-section">
+       <h2 class="product-header">
+        <span class="hyphen-line"></span> Our Products <span class="hyphen-line"></span>
+    </h2>
+        <div id="product-container" class="product-container"></div>
+    
+        <!-- Pagination Controls -->
+        <div id="pagination-controls" class="pagination"></div>
+    </div>
+    <footer class="bg-dark text-light py-5 mt-5">
+      <div class="container">
+          <div class="row">
+              <!-- About Section -->
+              <div class="col-lg-4 col-md-6 mb-4">
+                  <h5>About Godetia</h5>
+                  <p>Godetia is your trusted source for high-quality medical kits and accessories. We are committed to innovation and sustainability, ensuring our customers receive the best products.</p>
+              </div>
+              <!-- Navigation Section -->
+              <div class="col-lg-4 col-md-6 mb-4">
+                  <h5>Quick Links</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="#home" class="text-light">Home</a></li>
+                      <li><a href="#medical-kits" class="text-light">Medical Kits</a></li>
+                      <li><a href="#about-us" class="text-light">About Us</a></li>
+                      <li><a href="#contact" class="text-light">Contact</a></li>
+                  </ul>
+              </div>
+              <!-- Contact and Social Section -->
+              <div class="col-lg-4 col-md-12 mb-4">
+                  <h5>Contact Us</h5>
+                  <p><i class="bi bi-geo-alt-fill"></i> Dongguan Godetias Medical Products Technology Co., Ltd., 4th Floor, Building 1, Xinhongyuan Industrial Park, Everbright Road, Dongcheng District, Dongguan, Guandong Province</p>
+                  <p><i class="bi bi-envelope-fill"></i> contact@godetia.com</p>
+                  <p><i class="bi bi-telephone-fill"></i>+86 13538501419 / +86 13538504041</p>
+                  <div class="social-links">
+                      <button class="btn btn-light">
+                          <i class="fab fa-weixin"></i> WeChat
+                      </button>
+                      <button class="btn btn-light">
+                          <i class="fab fa-whatsapp"></i> WhatsApp
+                      </button>
+                  </div>
+              </div>
+          </div>
+          <hr class="bg-light">
+          <div class="text-center">
+              <p>&copy; 2024 Godetia | All Rights Reserved</p>
+          </div>
+      </div>
+  </footer>
+  <script src="./js/product.js"></script>
+</body>
+</html>

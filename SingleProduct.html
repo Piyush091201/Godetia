@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="./js/singleproduct.js" defer></script>
+    <style>
+         .product-details {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+    margin: 0 10%;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 125px;
+}
+
+.product-images {
+    flex: 1;
+    padding: 20px;
+}
+
+#product-image {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+    flex: 2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.product-info p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+#product-rating {
+    font-size: 18px;
+    color: #ff9800;
+    margin-bottom: 30px;
+}
+
+/* Buttons Section */
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.whatsapp-btn, .contact-btn {
+    background-color: #25D366; /* WhatsApp green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-btn {
+    background-color: #007bff; /* Contact button blue */
+}
+
+.whatsapp-btn:hover, .contact-btn:hover {
+    background-color: #128C7E; /* WhatsApp hover */
+}
+
+.whatsapp-btn i, .contact-btn i {
+    font-size: 18px;
+}
+
+/* Suggested Products Section */
+.suggested-products {
+    margin-top: 50px;
+    text-align: center;
+    padding: 30px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.suggested-products h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.product-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background-color: #fff;
+    width: 200px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-card img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    margin-top: 15px;
+    color: #333;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .product-details {
+        flex-direction: column;
+        margin: 0 5%;
+    }
+
+    .product-info {
+        flex: 1;
+        padding: 15px;
+    }
+
+    .product-images {
+        margin-bottom: 20px;
+    }
+
+    .product-container {
+        flex-direction: column;
+    }
+
+    .product-card {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header and Navbar (Optional) -->
+    <div class="navbarr">
+        <div class="navbarr-logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div class="navbarr-menu">
+            <a href="Product.html">Back to Products</a>
+        </div>
+    </div>
+
+    <div class="product-details">
+        <div class="product-images">
+            <img id="product-image" src="" alt="Product Image">
+        </div>
+        <div class="product-info">
+            <h2 id="product-title"></h2>
+            <p id="product-description"></p>
+            <div id="product-rating"></div>
+            <div class="buttons">
+                <button id="whatsapp-button" class="btn whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </button>
+                <button id="contact-us-button" class="btn contact-btn">
+                    Contact Us
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Suggested Products Section -->
+    <div class="suggested-products">
+        <h3>Suggested Products</h3>
+        <div id="suggested-product-container" class="product-container"></div>
+    </div>
+</body>
+</html>
