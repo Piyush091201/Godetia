@@ -27,7 +27,7 @@
             <a href="./index.html">Home</a>
             <a href="./Product.html">Medical Kits</a>
             <a href="./AboutUs.html">About Us</a>
-            <a href="#">Contact</a>
+            <a href="./contact.html">Contact</a>
         </div>
         <div class="menu-toggle" id="menu-toggle-btn">
             <span></span>
@@ -192,19 +192,19 @@
     <div class="certificates-carousel-container">
         <div class="certificates-carousel">
             <div class="certificate active">
-                <img src="./css/Images/WechatIMG78.jpg" alt="Certificate 1">
+                <img src="./css/Images/Certificates/WechatIMG78.jpg" alt="Certificate 1">
             </div>
             <div class="certificate">
-                <img src="./css/Images/WechatIMG79.jpg" alt="Certificate 2">
+                <img src="./css/Images/Certificates/WechatIMG79.jpg" alt="Certificate 2">
             </div>
             <div class="certificate">
-                <img src="./css/Images/WechatIMG81.jpg" alt="Certificate 3">
+                <img src="./css/Images/Certificates/7_佛山好事来-FDA注册证明(1) (1)-1.png" alt="Certificate 3">
             </div>
             <div class="certificate">
-                <img src="./css/Images/WechatIMG78.jpg" alt="Certificate 4">
+                <img src="./css/Images/Certificates/CERT Dongguan Godetia Medical Supplies Technology Co., Ltd (4)-1.png" alt="Certificate 4">
             </div>
             <div class="certificate">
-                <img src="./css/Images/WechatIMG78.jpg" alt="Certificate 5">
+                <img src="./css/Images/Certificates/CERT Dongguan Godetia Medical Supplies Technology Co., Ltd (4)-2.png" alt="Certificate 5">
             </div>
         </div>
     </div>
@@ -240,7 +240,7 @@
             <img src="./css/Images/NBA.png" alt="Brand 1">
         </div>
         <div class="brand-logo">
-            <img src="./css/Images/Toyota.png" alt="Brand 1">
+            <img src="./css/Images/Toyota.jpeg" alt="Brand 1">
         </div>
         <div class="brand-logo">
             <img src="./css/Images/ChineseBank.jpg" alt="Brand 1">
@@ -270,7 +270,7 @@
             <img src="./css/Images/Ecolab.png" alt="Brand 1">
         </div>
         <div class="brand-logo">
-            <img src="./css/Images/Turkish_Airlines_logo.png" alt="Brand 1">
+            <img src="./css/Images/TurkishAirlines.jpeg" alt="Brand 1">
         </div>
         <div class="brand-logo">
             <img src="./css/Images/AGBC.png" alt="Brand 1">
@@ -288,7 +288,7 @@
             <img src="./css/Images/Jinke.jpg" alt="Brand 1">
         </div>
         <div class="brand-logo">
-            <img src="./css/Images/Shopee.png" alt="Brand 1">
+            <img src="./css/Images/Shopee.jpeg" alt="Brand 1">
         </div>
         <div class="brand-logo">
             <img src="./css/Images/Kantar.jpg" alt="Brand 1">
@@ -609,12 +609,14 @@
                 <p><i class="bi bi-envelope-fill"></i> contact@godetia.com</p>
                 <p><i class="bi bi-telephone-fill"></i>+86 13538501419 / +86 13538504041</p>
                 <div class="social-links">
-                    <button class="btn btn-light">
+                    <!-- Updated Button -->
+                    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#weChatModal">
                         <i class="fab fa-weixin"></i> WeChat
                     </button>
-                    <button class="btn btn-light">
+                    <a href="https://wa.me/+918208896517?text=Hello%20there!" class="btn btn-light" target="_blank">
                         <i class="fab fa-whatsapp"></i> WhatsApp
-                    </button>
+                    </a>
+                    
                 </div>
             </div>
         </div>
@@ -624,6 +626,28 @@
         </div>
     </div>
 </footer>
+
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="weChatModal" tabindex="-1" aria-labelledby="weChatModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 15px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
+            <div class="modal-header" style="background: #ff7c00; color: white; border-bottom: none;">
+                <h5 class="modal-title" id="weChatModalLabel" style="font-weight: 600; letter-spacing: 0.5px;">Scan the QR Code</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center" style="padding: 30px; background-color: #f8f9fa;">
+                <p style="font-size: 16px; color: #555; margin-bottom: 20px;">Use the QR code to connect with us as a friend, then send us a message.</p>
+                <div style="background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: inline-block;">
+                    <img src="./css/Images/WeChat.jpg" alt="WeChat QR Code" class="img-fluid" style="max-width: 200px; border-radius: 10px;">
+                </div>
+                <p class="mt-3" style="font-size: 14px; color: #777;">Scan using the WeChat app to connect with us!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
 

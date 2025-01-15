@@ -68,7 +68,7 @@ nextButton.addEventListener('click', () => {
 setInterval(() => {
     currentIndex = (currentIndex + 1) % carouselItems.length;
     updateCarousel(currentIndex);
-}, 5000);
+}, 3000);
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -123,40 +123,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const products = [
     { img: "./css/Images/Products/1.png", name: "Product 1" },
-    { img: "./css/Images/Products/2.png", name: "Product 2" },
-    { img: "./css/Images/Products/3.png", name: "Product 3" },
-    { img: "./css/Images/Products/4.jpg", name: "Product 4" },
-    { img: "./css/Images/Products/5.jpg", name: "Product 5" },
-    { img: "./css/Images/Products/6.jpg", name: "Product 6" },
-    { img: "./css/Images/Products/7.jpg", name: "Product 7" },
-    { img: "./css/Images/Products/9.jpg", name: "Product 9" },
-    { img: "./css/Images/Products/10.png", name: "Product 10" },
-    { img: "./css/Images/Products/11.jpg", name: "Product 11" },
-    { img: "./css/Images/Products/12.jpg", name: "Product 12" },
-    { img: "./css/Images/Products/13.png", name: "Product 13" },
-    { img: "./css/Images/Products/14.png", name: "Product 14" },
-    { img: "./css/Images/Products/15.jpg", name: "Product 15" },
-    { img: "./css/Images/Products/16.jpg", name: "Product 16" },
-    { img: "./css/Images/Products/17.jpg", name: "Product 17" },
-    { img: "./css/Images/Products/18.jpg", name: "Product 18" },
-    { img: "./css/Images/Products/19.jpg", name: "Product 19" },
-    { img: "./css/Images/Products/20.jpg", name: "Product 20" },
-    { img: "./css/Images/Products/21.jpg", name: "Product 21" },
-    { img: "./css/Images/Products/22.jpg", name: "Product 22" },
-    { img: "./css/Images/Products/23.jpg", name: "Product 23" },
-    { img: "./css/Images/Products/24.jpg", name: "Product 24" },
-    { img: "./css/Images/Products/25.jpg", name: "Product 25" },
-    { img: "./css/Images/Products/26.jpg", name: "Product 26" },
-    { img: "./css/Images/Products/27.jpg", name: "Product 27" },
-    { img: "./css/Images/Products/28.jpg", name: "Product 28" },
-    { img: "./css/Images/Products/29.jpg", name: "Product 29" },
-    { img: "./css/Images/Products/30.jpg", name: "Product 30" },
-    { img: "./css/Images/Products/31.jpg", name: "Product 31" },
-    { img: "./css/Images/Products/32.jpg", name: "Product 32" },
-    { img: "./css/Images/Products/33.jpg", name: "Product 33" },
-    { img: "./css/Images/Products/34.jpg", name: "Product 34" },
-    { img: "./css/Images/Products/35.jpg", name: "Product 35" },
-    { img: "./css/Images/Products/36.jpg", name: "Product 36" },
+    { img: "./css/Images/Products/13.png", name: "Product 2" },
+    { img: "./css/Images/Products/26.jpg", name: "Product 3" },
+    { img: "./css/Images/Products/25.jpg", name: "Product 4" },
+    { img: "./css/Images/Products/18.jpg", name: "Product 5" },
+    { img: "./css/Images/Products/35.jpg", name: "Product 6" },
+    { img: "./css/Images/Products/3.png", name: "Product 7" },
+    { img: "./css/Images/Products/29.jpg", name: "Product 9" },
+    { img: "./css/Images/Products/11.jpg", name: "Product 10" },
+    
     
     
 ];
@@ -180,7 +155,7 @@ for (let i = 0; i < products.length; i += chunkSize) {
         col.innerHTML = `
             <div class="product-card">
                 <img src="${product.img}" alt="${product.name}">
-                <h3>${product.name}</h3>
+                
             </div>
         `;
         row.appendChild(col);

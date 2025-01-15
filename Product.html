@@ -275,15 +275,15 @@
     <!-- Navbar -->
     <div class="navbarr">
         <div class="navbarr-logo">
-            <img src="/css/Images/Godetia Logo.jpg" alt="Logo"> <!-- Replace with your logo -->
+            <img src="./css/Images/Godetia Logo.jpg" alt="Godetia Logo">
         </div>
         <div class="navbarr-menu">
             <a href="./index.html">Home</a>
-            <a href="./Product.html">Products</a>
+            <a href="./Product.html">Medical Kits</a>
             <a href="./AboutUs.html">About Us</a>
-            <a href="#">Contact</a>
+            <a href="./contact.html">Contact</a>
         </div>
-        <div class="menu-toggle">
+        <div class="menu-toggle" id="menu-toggle-btn">
             <span></span>
             <span></span>
             <span></span>
@@ -338,45 +338,67 @@
         <div id="pagination-controls" class="pagination"></div>
     </div>
     <footer class="bg-dark text-light py-5 mt-5">
-      <div class="container">
-          <div class="row">
-              <!-- About Section -->
-              <div class="col-lg-4 col-md-6 mb-4">
-                  <h5>About Godetia</h5>
-                  <p>Godetia is your trusted source for high-quality medical kits and accessories. We are committed to innovation and sustainability, ensuring our customers receive the best products.</p>
-              </div>
-              <!-- Navigation Section -->
-              <div class="col-lg-4 col-md-6 mb-4">
-                  <h5>Quick Links</h5>
-                  <ul class="list-unstyled">
-                      <li><a href="#home" class="text-light">Home</a></li>
-                      <li><a href="#medical-kits" class="text-light">Medical Kits</a></li>
-                      <li><a href="#about-us" class="text-light">About Us</a></li>
-                      <li><a href="#contact" class="text-light">Contact</a></li>
-                  </ul>
-              </div>
-              <!-- Contact and Social Section -->
-              <div class="col-lg-4 col-md-12 mb-4">
-                  <h5>Contact Us</h5>
-                  <p><i class="bi bi-geo-alt-fill"></i> Dongguan Godetias Medical Products Technology Co., Ltd., 4th Floor, Building 1, Xinhongyuan Industrial Park, Everbright Road, Dongcheng District, Dongguan, Guandong Province</p>
-                  <p><i class="bi bi-envelope-fill"></i> contact@godetia.com</p>
-                  <p><i class="bi bi-telephone-fill"></i>+86 13538501419 / +86 13538504041</p>
-                  <div class="social-links">
-                      <button class="btn btn-light">
-                          <i class="fab fa-weixin"></i> WeChat
-                      </button>
-                      <button class="btn btn-light">
-                          <i class="fab fa-whatsapp"></i> WhatsApp
-                      </button>
-                  </div>
-              </div>
-          </div>
-          <hr class="bg-light">
-          <div class="text-center">
-              <p>&copy; 2024 Godetia | All Rights Reserved</p>
-          </div>
-      </div>
-  </footer>
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5>About Godetia</h5>
+                    <p>Godetia is your trusted source for high-quality medical kits and accessories. We are committed to innovation and sustainability, ensuring our customers receive the best products.</p>
+                </div>
+                <!-- Navigation Section -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-light">Home</a></li>
+                        <li><a href="#medical-kits" class="text-light">Medical Kits</a></li>
+                        <li><a href="#about-us" class="text-light">About Us</a></li>
+                        <li><a href="#contact" class="text-light">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Contact and Social Section -->
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <h5>Contact Us</h5>
+                    <p><i class="bi bi-geo-alt-fill"></i> Dongguan Godetias Medical Products Technology Co., Ltd., 4th Floor, Building 1, Xinhongyuan Industrial Park, Everbright Road, Dongcheng District, Dongguan, Guandong Province</p>
+                    <p><i class="bi bi-envelope-fill"></i> contact@godetia.com</p>
+                    <p><i class="bi bi-telephone-fill"></i>+86 13538501419 / +86 13538504041</p>
+                    <div class="social-links">
+                        <!-- Updated Button -->
+                        <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#weChatModal">
+                            <i class="fab fa-weixin"></i> WeChat
+                        </button>
+                        <a href="https://wa.me/+918208896517?text=Hello%20there!" class="btn btn-light" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p>&copy; 2024 Godetia | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="weChatModal" tabindex="-1" aria-labelledby="weChatModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 15px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
+                <div class="modal-header" style="background: #ff7c00; color: white; border-bottom: none;">
+                    <h5 class="modal-title" id="weChatModalLabel" style="font-weight: 600; letter-spacing: 0.5px;">Scan the QR Code</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center" style="padding: 30px; background-color: #f8f9fa;">
+                    <p style="font-size: 16px; color: #555; margin-bottom: 20px;">Use the QR code to connect with us as a friend, then send us a message.</p>
+                    <div style="background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: inline-block;">
+                        <img src="./css/Images/WeChat.jpg" alt="WeChat QR Code" class="img-fluid" style="max-width: 200px; border-radius: 10px;">
+                    </div>
+                    <p class="mt-3" style="font-size: 14px; color: #777;">Scan using the WeChat app to connect with us!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./js/product.js"></script>
 </body>
 </html>

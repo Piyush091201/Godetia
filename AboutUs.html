@@ -10,11 +10,8 @@
         
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-<style>
-   .navbarr {
-     background: linear-gradient(45deg,#fa7807,#f1c7a3);
-   }
-</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     </head>
     <body>
        <!-- <nav>
@@ -24,15 +21,15 @@
        </nav> -->
        <div class="navbarr">
         <div class="navbarr-logo">
-            <img src="logo.png" alt="Logo"> <!-- Replace with your logo -->
+            <img src="./css/Images/Godetia Logo.jpg" alt="Godetia Logo">
         </div>
         <div class="navbarr-menu">
-            <a href="./index.html">Home</a>
-            <a href="./Product.html">Products</a>
-            <a href="./AboutUs.html">About Us</a>
-            <a href="#">Contact</a>
+          <a href="./index.html">Home</a>
+          <a href="./Product.html">Medical Kits</a>
+          <a href="./AboutUs.html">About Us</a>
+          <a href="./contact.html">Contact</a>
         </div>
-        <div class="menu-toggle">
+        <div class="menu-toggle" id="menu-toggle-btn">
             <span></span>
             <span></span>
             <span></span>
@@ -41,11 +38,7 @@
         <header>
                  
             <h1>About Us</h1>
-            <p> Welcome to Godetia 
-                your trusted source for high-quality medical kits 
-                and accessories, helping businesses and individuals achieve their goals.
-                Founded in 2010 , we are passionte about creating tool that empower our customers
-                to excel in their fields.
+            <p> Godetia is comprehensive medical enterprise integrating the research & development, processing and sales of First aid kit, Disposable Gloves, and medical consumables etc.
             </p>
         </header>
     <section class="about-image">
@@ -85,7 +78,7 @@
               
               <!-- -- CEO Section -- -->
               <div class="ceo">
-                <img src="./css/Images/WechatIMG48.jpg" alt="CEO Photo">
+                <img src="./css/Images/Team/WechatIMG48.jpg" alt="CEO Photo">
                 <h2>Paul</h2>
                 <p class="role">Chief Executive Officer</p>
               </div>
@@ -97,39 +90,39 @@
                 <div class="team">
                    <!-- Team Member 1  -->
                   <div class="team-member">
-                    <img src="./css/Images/WechatIMG41.jpg" alt="Ann Richmond">
-                    <h3>Kyyush</h3>
-                    <p class="role">role</p>
+                    <img src="./css/Images/Team/WechatIMG41.jpg" alt="Ann Richmond">
+                    <h3>Kayyush</h3>
+                    <p class="role">Head of International Trade</p>
                   </div>
                   <div class="team-member">
-                    <img src="./css/Images/Copy of WechatIMG52 (1).jpg" alt="David Bell">
+                    <img src="./css/Images/Team/WechatIMG52.jpg" alt="David Bell">
                     <h3>Lee</h3>
                     <p class="role">Operation Manager</p>
                   </div>
                   <div class="team-member">
-                    <img src="./css/Images/Copy of WechatIMG50 (1).jpg" alt="David Bell">
+                    <img src="./css/Images/Team/WechatIMG50.jpg" alt="David Bell">
                     <h3>Name</h3>
                     <p class="role">Production Manager</p>
                   </div>
                 
                   <div class="team-member">
-                    <img src="./css/Images/Copy of WechatIMG49.jpg" alt="David Bell">
+                    <img src="./css/Images/Team/WechatIMG49.jpg" alt="David Bell">
                     <h3>Tayler</h3>
                     <p class="role">Manager</p>
                   </div>
                  
                   <div class="team-member">
-                    <img src="./css/Images/WechatIMG51.jpg" alt="Chung Schleuter">
+                    <img src="./css/Images/Team/WechatIMG51.jpg" alt="Chung Schleuter">
                     <h3>Linda</h3>
                     <p class="role">Sales</p>
                   </div>
                   <div class="team-member">
-                    <img src="./css/Images/Copy of WechatIMG53 (1).jpg" alt="David Bell">
+                    <img src="./css/Images/Team/WechatIMG53.jpg" alt="David Bell">
                     <h3>Peter</h3>
                     <p class="role">Sales</p>
                   </div>
                   <div class="team-member">
-                    <img src="./css/Images/Copy of WechatIMG54.jpg" alt="David Bell">
+                    <img src="./css/Images/Team/WechatIMG54.jpg" alt="David Bell">
                     <h3>Vicky</h3>
                     <p class="role">Designer</p>
                   </div>
@@ -161,14 +154,17 @@
                 <!-- Contact and Social Section -->
                 <div class="col-lg-4 col-md-12 mb-4">
                     <h5>Contact Us</h5>
-                    <p><i class="bi bi-geo-alt-fill"></i> 123 Godetia Lane, Wellness City, NY</p>
+                    <p><i class="bi bi-geo-alt-fill"></i> Dongguan Godetias Medical Products Technology Co., Ltd., 4th Floor, Building 1, Xinhongyuan Industrial Park, Everbright Road, Dongcheng District, Dongguan, Guandong Province</p>
                     <p><i class="bi bi-envelope-fill"></i> contact@godetia.com</p>
-                    <p><i class="bi bi-telephone-fill"></i> +1 234 567 890</p>
+                    <p><i class="bi bi-telephone-fill"></i>+86 13538501419 / +86 13538504041</p>
                     <div class="social-links">
-                        <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="text-light me-3"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="text-light"><i class="bi bi-linkedin"></i></a>
+                        <!-- Updated Button -->
+                        <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#weChatModal">
+                            <i class="fab fa-weixin"></i> WeChat
+                        </button>
+                        <a href="https://wa.me/+918208896517?text=Hello%20there!" class="btn btn-light" target="_blank">
+                          <i class="fab fa-whatsapp"></i> WhatsApp
+                      </a>
                     </div>
                 </div>
             </div>
@@ -178,6 +174,26 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="weChatModal" tabindex="-1" aria-labelledby="weChatModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 15px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
+                <div class="modal-header" style="background: #ff7c00; color: white; border-bottom: none;">
+                    <h5 class="modal-title" id="weChatModalLabel" style="font-weight: 600; letter-spacing: 0.5px;">Scan the QR Code</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center" style="padding: 30px; background-color: #f8f9fa;">
+                    <p style="font-size: 16px; color: #555; margin-bottom: 20px;">Use the QR code to connect with us as a friend, then send us a message.</p>
+                    <div style="background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: inline-block;">
+                        <img src="./css/Images/WeChat.jpg" alt="WeChat QR Code" class="img-fluid" style="max-width: 200px; border-radius: 10px;">
+                    </div>
+                    <p class="mt-3" style="font-size: 14px; color: #777;">Scan using the WeChat app to connect with us!</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     </body>
 </html>

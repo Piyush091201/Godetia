@@ -734,7 +734,7 @@ body {
 .animated-banner {
     width: 100%;
     background: linear-gradient(90deg, #FFD9A0, #FFB87A, #FFA259); /* Light orange gradient */
-    padding: 40px 20px; /* Generous padding for a clean look */
+    padding: 10px 20px; /* Generous padding for a clean look */
     text-align: center;
     overflow: hidden;
     position: relative;
@@ -919,7 +919,7 @@ footer ul li a:hover {
 }
 
 footer .social-links a {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     text-decoration: none;
 }
 
@@ -1359,3 +1359,34 @@ footer .social-links a:hover {
       font-size: 0.9rem;
     }
   }
+
+  /* Modal Title Styling */
+#weChatModalLabel {
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+/* Modal Header Close Button */
+.btn-close-white {
+    filter: invert(100%);
+}
+
+/* Modal Content Shadow */
+.modal-content {
+    border: 1px solid #e0e0e0;
+}
+
+/* QR Code Box */
+.modal-body img {
+    transition: transform 0.3s ease;
+}
+
+.modal-body img:hover {
+    transform: scale(1.05);
+}
+
+/* Text Styling */
+.modal-body p {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.5;
+}
