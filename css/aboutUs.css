@@ -40,26 +40,52 @@ h2{
     font-size: 1.8em;
     color: #283f57;
     margin-bottom: 10px;
+    
 }
 
 p{
-    font-size: 1.1em;
+    font-size: 1.5em;
     margin-bottom: 15px;
+    font-family: 'Merriweather'
 }
 
 ul li{
     font-size: 1.1em;
     margin-bottom: 10px;
     position:relative;
-    padding-left: 25px;
+    padding-left: 40px;
+    list-style: none;
 }
 
-/* ul li::before{
-    content: "+";
+ul li:nth-child(1)::before{
+    content: "✔️"; 
     position: absolute;
     left: 0;
-    color:#4CAF50;
-} */
+    font-size: 1.2em;
+    color: #0275d8; 
+}
+
+ul li:nth-child(2)::before{
+    content: "🔧"; 
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    color: #0275d8; 
+}
+ul li:nth-child(3)::before{
+    content: "🌍"; 
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    color: #0275d8; 
+}
+ul li:nth-child(4)::before{
+    content: "🤝"; 
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    color: #0275d8; 
+}
 
 .nav-menu{
     list-style-type:none ;
