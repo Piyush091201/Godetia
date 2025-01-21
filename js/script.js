@@ -30,7 +30,7 @@
 //     });
 // });
 AOS.init({
-    duration: 3000, // Animation duration in milliseconds
+    duration: 2000, // Animation duration in milliseconds
     easing: 'ease-in-out', // Easing for animations
     once: true // Animation triggers only once
   });
