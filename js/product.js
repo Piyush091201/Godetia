@@ -131,15 +131,15 @@ function updateCarousel(index) {
 }
 
 // Event listeners for controls
-prevButton.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
-    updateCarousel(currentIndex);
-});
+// prevButton.addEventListener('click', () => {
+//     currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+//     updateCarousel(currentIndex);
+// });
 
-nextButton.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % carouselItems.length;
-    updateCarousel(currentIndex);
-});
+// nextButton.addEventListener('click', () => {
+//     currentIndex = (currentIndex + 1) % carouselItems.length;
+//     updateCarousel(currentIndex);
+// });
 
 // Automatic carousel rotation
 setInterval(() => {

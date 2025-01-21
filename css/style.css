@@ -1161,6 +1161,7 @@ footer .social-links a:hover {
 
     .certificates-carousel {
         gap: 10px;
+        padding: 10px;
     }
 }
 
