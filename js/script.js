@@ -29,6 +29,11 @@
 //         }
 //     });
 // });
+AOS.init({
+    duration: 3000, // Animation duration in milliseconds
+    easing: 'ease-in-out', // Easing for animations
+    once: true // Animation triggers only once
+  });
 
 $(document).ready(function () {
     $('#menu-toggle-btn').on('click', function () {
@@ -54,15 +59,7 @@ function updateCarousel(index) {
 }
 
 // Event listeners for controls
-prevButton.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
-    updateCarousel(currentIndex);
-});
 
-nextButton.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % carouselItems.length;
-    updateCarousel(currentIndex);
-});
 
 // Automatic carousel rotation
 setInterval(() => {
@@ -164,3 +161,7 @@ for (let i = 0; i < products.length; i += chunkSize) {
     carouselItem.appendChild(row);
     carousselInner.appendChild(carouselItem);
 }
+
+const productCarousel = new bootstrap.Carousel('#productCarousel', {
+    interval: 2000 // Speed in milliseconds (2 seconds)
+});

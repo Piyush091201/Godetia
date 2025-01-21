@@ -11,6 +11,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+<!-- AOS JS -->
+
 </head>
 <body>
     <!-- Announcement Bar -->
@@ -48,14 +52,7 @@
 <div class="caroussel">
     <div class="caroussel-inner">
         <div class="caroussel-item active" style="background-image: url('./css/Images/Image2.jpg');">
-            <!-- <div class="overlay">
-                <button class="wechat-btn">
-                    <i class="fab fa-weixin"></i> WeChat
-                </button>
-                <button class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </button>
-            </div> -->
+          
         </div>
         <div class="caroussel-item" style="background-image: url('./css/Images/Image3.jpg');">
             <!-- <div class="overlay">
@@ -71,8 +68,8 @@
         <div class="caroussel-item" style="background-image: url('./css/Images/WechatIMG30.jpg');"></div>
         <div class="caroussel-item" style="background-image: url('./css/Images/WechatIMG31.jpg');"></div>
     </div>
-    <button class="caroussel-control prev" aria-label="Previous">&lt;</button>
-    <button class="caroussel-control next" aria-label="Next">&gt;</button>
+    <!-- <button class="caroussel-control prev" aria-label="Previous">&lt;</button>
+    <button class="caroussel-control next" aria-label="Next">&gt;</button> -->
     <div class="caroussel-indicators">
         <div class="indicator active"></div>
         <div class="indicator"></div>
@@ -87,11 +84,11 @@
 
 
 <div class="product-section">
-    <h2 class="product-header">
+    <h2 class="product-header" data-aos="fade-up" data-aos-delay="200">
         <span class="hyphen-line"></span> Our Products <span class="hyphen-line"></span>
     </h2>
     <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner" id="carouselInner">
+        <div class="carousel-inner" id="carouselInner" data-aos="fade-up" data-aos-delay="300">
             <!-- Carousel items will be dynamically added here -->
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
@@ -107,7 +104,7 @@
 
 
 
-<div class="parallax-section">
+<div class="parallax-section" data-aos="fade-up" data-aos-delay="400">
     <div class="parallax-image"></div>
     <div class="parallax-overlay"></div>
     <div class="parallax-content">
@@ -117,7 +114,7 @@
     </div>
 </div>
 
-<div class="why-choose-section">
+<div class="why-choose-section" data-aos="fade-up" data-aos-delay="500">
     <div class="container">
         <h2 class="section-title">Why Choose Godetia</h2>
         <div class="row">
@@ -164,14 +161,14 @@
 
 
 
-<div class="animated-banner">
+<div class="animated-banner" data-aos="fade-up" data-aos-delay="600">
     <div class="banner-content">
         <p>"Experience the best with Godetia - Quality and Innovation at its Peak!"</p>
     </div>
 </div>
 
 
-<div class="full-width-image">
+<div class="full-width-image" data-aos="fade-up" data-aos-delay="700">
     <div class="image-overlay">
         <h1>10+ Years OEM & ODM Experience</h1>
         <p>
@@ -182,7 +179,7 @@
     </div>
 </div>
 
-<section class="certificates-section">
+<section class="certificates-section" data-aos="fade-up" data-aos-delay="800">
     <h2 class="product-header">
         <span class="hyphen-line"></span> Our Certifications <span class="hyphen-line"></span>
     </h2>
@@ -211,7 +208,7 @@
 </section>
 
 
-<section class="brands-section">
+<section class="brands-section" data-aos="fade-up" data-aos-delay="900">
    
     <h2 class="product-header">
         <span class="hyphen-line"></span>Brands We Have Worked With<span class="hyphen-line"></span>
@@ -308,7 +305,7 @@
 </section>
 
 
-<section class="contact-us-section">
+<section class="contact-us-section" data-aos="fade-up" data-aos-delay="200">
     <div class="container">
         <h2 class="product-header">
             <span class="hyphen-line"></span>Contact Us<span class="hyphen-line"></span>
@@ -649,7 +646,7 @@
 
 
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
